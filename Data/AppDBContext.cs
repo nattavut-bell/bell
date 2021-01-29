@@ -14,7 +14,8 @@ namespace RPG_Project.Data
             : base(options)
         {
         }
-//TEST
+        //TEST
+        //TEST01
         public DbSet<Character> Characters { get; set; }
         public DbSet<Weapon> Weapons { get; set; }
 
