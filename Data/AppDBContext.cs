@@ -24,8 +24,10 @@ namespace RPG_Project.Data
         public DbSet<Skill> Skills { get; set; }
         public DbSet<ReportHeader> ReportHeaders { get; set; }
         public DbSet<ReportDetail> ReportDetails { get; set; }
-        // public DbSet<Product> Product { get; set; }
-        // public DbSet<ProductGroup> ProductGroup { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<ProductGroup> ProductGroup { get; set; }
+
+        public DbSet<Bulk> Bulk { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

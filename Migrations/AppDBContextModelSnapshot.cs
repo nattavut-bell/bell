@@ -18,6 +18,24 @@ namespace RPG_Project.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("RPG_Project.Models.Bulk", b =>
+                {
+                    b.Property<int>("BulkId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BulkCode")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("BulkName")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.HasKey("BulkId");
+
+                    b.ToTable("Bulk");
+                });
+
             modelBuilder.Entity("RPG_Project.Models.Character", b =>
                 {
                     b.Property<int>("Id")
@@ -59,6 +77,47 @@ namespace RPG_Project.Migrations
                     b.HasIndex("SkillId");
 
                     b.ToTable("CharacterSkill");
+                });
+
+            modelBuilder.Entity("RPG_Project.Models.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProductGroupId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StockCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductGroupId");
+
+                    b.ToTable("Product");
+                });
+
+            modelBuilder.Entity("RPG_Project.Models.ProductGroup", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductGroup");
                 });
 
             modelBuilder.Entity("RPG_Project.Models.Report.ReportDetail", b =>
@@ -150,6 +209,15 @@ namespace RPG_Project.Migrations
                     b.HasOne("RPG_Project.Models.Skill", "Skill")
                         .WithMany("CharacterSkills")
                         .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("RPG_Project.Models.Product", b =>
+                {
+                    b.HasOne("RPG_Project.Models.ProductGroup", null)
+                        .WithMany("Product")
+                        .HasForeignKey("ProductGroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
