@@ -1,4 +1,6 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using RPG_Project.DTOs;
 using RPG_Project.Services;
 
 namespace RPG_Project.Controllers
@@ -36,5 +38,31 @@ namespace RPG_Project.Controllers
         {
             return Ok(_bulkService.BulkDelete());
         }
+
+        [HttpGet("bulk/pagination")]
+        public async Task<IActionResult> GetBulksWithPagination([FromQuery] PaginationDto pagination)
+        {
+            return Ok(await _bulkService.GetBulksWithPagination(pagination));
+        }
+
+        [HttpGet("bulk/filter")]
+        public async Task<IActionResult> GetBulksFilter([FromQuery] BulkFilterDto filter)
+        {
+            return Ok(await _bulkService.GetBulksFilter(filter));
+        }
+
+
+        [HttpGet("bulk/inline")]
+        public async Task<IActionResult> GetBulkByInlineSQL(int bulkId)
+        {
+            return Ok(await _bulkService.GetBulksByInlineSQL(bulkId));
+        }
+
+        [HttpGet("bulk/storeprocedure")]
+        public async Task<IActionResult> GetBulksByStoreProcedure(int bulkId)
+        {
+            return Ok(await _bulkService.GetBulksByStoreProcedure(bulkId));
+        }
+
     }
 }

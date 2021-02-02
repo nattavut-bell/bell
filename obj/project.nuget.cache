@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AtmyofHGuZcdq95ALlvdAvnGrOt0gbngKBeE7bRQdaxso4p+iA32Lb6Xg/3i3iSzrXHLmUHWes2ePRdRrh6c4w==",
+  "dgSpecHash": "86JAFKA5VjNZypdz7EaCKFjL0K74k4XMhso0+jdOHxkKXc55z5jg97JLk/VwUfO9eWBpGl0o6Mvj2qjm4jlc/Q==",
   "success": true,
   "projectFilePath": "D:\\RPG_Project\\RPG_Project\\RPG_Project.csproj",
   "expectedPackageFiles": [
@@ -108,7 +108,7 @@
     "C:\\Users\\SBT-NB-COM-40\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\SBT-NB-COM-40\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\SBT-NB-COM-40\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
-    "C:\\Users\\SBT-NB-COM-40\\.nuget\\packages\\system.linq.dynamic.core\\1.2.5\\system.linq.dynamic.core.1.2.5.nupkg.sha512",
+    "C:\\Users\\SBT-NB-COM-40\\.nuget\\packages\\system.linq.dynamic.core\\1.2.7\\system.linq.dynamic.core.1.2.7.nupkg.sha512",
     "C:\\Users\\SBT-NB-COM-40\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\SBT-NB-COM-40\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\SBT-NB-COM-40\\.nuget\\packages\\system.net.nameresolution\\4.3.0\\system.net.nameresolution.4.3.0.nupkg.sha512",

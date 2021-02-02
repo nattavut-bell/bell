@@ -21,14 +21,16 @@ namespace RPG_Project.Helpers
                 TotalAmountRecords = totalAmountRecords,
                 TotalAmountPages = totalAmountPages,
                 CurrentPage = currentPage,
-                RecordsPerPage = recordsPerPage
+                RecordsPerPage = recordsPerPage,
+                PageIndex = currentPage - 1
             };
 
-            httpContext.Response.Headers.Add("totalAmountRecords", totalAmountRecords.ToString());
-            httpContext.Response.Headers.Add("totalAmountPages", totalAmountPages.ToString());
+            // httpContext.Response.Headers.Add("totalAmountRecords", totalAmountRecords.ToString());
+            // httpContext.Response.Headers.Add("totalAmountPages", totalAmountPages.ToString());
 
-            httpContext.Response.Headers.Add("currentPage", currentPage.ToString());
-            httpContext.Response.Headers.Add("recordsPerPage", recordsPerPage.ToString());
+            // httpContext.Response.Headers.Add("currentPage", currentPage.ToString());
+            // httpContext.Response.Headers.Add("recordsPerPage", recordsPerPage.ToString());
+            // httpContext.Response.Headers.Add("pageIndex", totalAmountPages.ToString());
 
             return resultDto;
         }

@@ -1,18 +1,26 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using EFCore.BulkExtensions;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using RPG_Project.Data;
+using RPG_Project.DTOs;
+using RPG_Project.Helpers;
 using RPG_Project.Models;
+using System.Linq.Dynamic.Core;
 
 namespace RPG_Project.Services
 {
     public class BulkService : IBulkService
     {
         private readonly AppDBContext _dbContext;
+        private readonly IHttpContextAccessor _httpContext;
 
-        public BulkService(AppDBContext dbContext)
+        public BulkService(AppDBContext dbContext, IHttpContextAccessor httpContext)
         {
             _dbContext = dbContext;
+            _httpContext = httpContext;
         }
 
         public List<Bulk> BulkDelete()
@@ -67,8 +75,63 @@ namespace RPG_Project.Services
             return bulk;
         }
 
+        public async Task<ServiceResponseWithPagination<List<Bulk>>> GetBulksWithPagination(PaginationDto pagination)
+        {
+            var queryable = _dbContext.Bulk.AsQueryable();
+            var paginationResult = await _httpContext.HttpContext
+                .InsertPaginationParametersInResponse(queryable, pagination.RecordsPerPage, pagination.Page);
+            var dto = await queryable.Paginate(pagination).ToListAsync();
 
+            return ResponseResultWithPagination.Success(dto, paginationResult);
+        }
 
+        public async Task<ServiceResponseWithPagination<List<Bulk>>> GetBulksFilter(BulkFilterDto filter)
+        {
+            var queryable = _dbContext.Bulk.AsQueryable();
+
+            //Filter
+            if (!string.IsNullOrWhiteSpace(filter.BulkName))
+            {
+                queryable = queryable.Where(x => x.BulkName.Contains(filter.BulkName));
+            }
+
+            //Filter
+            if (!string.IsNullOrWhiteSpace(filter.BulkCode))
+            {
+                queryable = queryable.Where(x => x.BulkCode.Contains(filter.BulkCode));
+            }
+
+            //Ordering
+            if (!string.IsNullOrWhiteSpace(filter.OrderingField))
+            {
+                try
+                {
+                    queryable = queryable.OrderBy($"{filter.OrderingField} {(filter.AscendingOrder ? "ASC" : "DESC")}");
+                }
+                catch
+                {
+                    return ResponseResultWithPagination.Failure<List<Bulk>>($"Could not order by Filed: {filter.OrderingField}");
+                }
+            }
+
+            var paginationResult = await _httpContext.HttpContext
+                .InsertPaginationParametersInResponse(queryable, filter.RecordsPerPage, filter.Page);
+            var dto = await queryable.Paginate(filter).ToListAsync();
+
+            return ResponseResultWithPagination.Success(dto, paginationResult);
+        }
+
+        public async Task<ServiceResponse<List<Bulk>>> GetBulksByInlineSQL(int bulkId)
+        {
+            var result = await _dbContext.Bulk.FromSqlRaw($"Select * from dbo.[Bulk] where BulkId = {bulkId}").ToListAsync();
+            return ResponseResult.Success(result);
+        }
+
+        public async Task<ServiceResponse<List<Bulk>>> GetBulksByStoreProcedure(int bulkId)
+        {
+            var result = await _dbContext.Bulk.FromSqlRaw($"Exec dbo.usp_Bulk_select @BulkId = {bulkId}").ToListAsync();
+            return ResponseResult.Success(result);
+        }
     }
 
 

@@ -1505,7 +1505,7 @@
           "lib/netstandard1.6/System.Linq.dll": {}
         }
       },
-      "System.Linq.Dynamic.Core/1.2.5": {
+      "System.Linq.Dynamic.Core/1.2.7": {
         "type": "package",
         "compile": {
           "lib/netcoreapp2.1/System.Linq.Dynamic.Core.dll": {}
@@ -5103,10 +5103,10 @@
         "system.linq.nuspec"
       ]
     },
-    "System.Linq.Dynamic.Core/1.2.5": {
-      "sha512": "uTZSZvntd0Qwpb7Iwq/QZRX+osr57XwDfh2fX6S6PGxl+k5C9ehK7rxs9DFJlCVSTgVhk4CSf6fobhN//uxggw==",
+    "System.Linq.Dynamic.Core/1.2.7": {
+      "sha512": "5m38/z1CrZ6Ul+1fSLh0J1ij0MNmllppxHPF9IaBzoeTARQDtS7zM0mGMrYFCwpE2Ditx17gBPCv5YC95OhTSA==",
       "type": "package",
-      "path": "system.linq.dynamic.core/1.2.5",
+      "path": "system.linq.dynamic.core/1.2.7",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5131,11 +5131,11 @@
         "lib/netstandard2.0/System.Linq.Dynamic.Core.dll",
         "lib/netstandard2.0/System.Linq.Dynamic.Core.pdb",
         "lib/netstandard2.0/System.Linq.Dynamic.Core.xml",
-        "lib/uap10.0/System.Linq.Dynamic.Core.dll",
-        "lib/uap10.0/System.Linq.Dynamic.Core.pdb",
-        "lib/uap10.0/System.Linq.Dynamic.Core.pri",
-        "lib/uap10.0/System.Linq.Dynamic.Core.xml",
-        "system.linq.dynamic.core.1.2.5.nupkg.sha512",
+        "lib/uap10.0.10240/System.Linq.Dynamic.Core.dll",
+        "lib/uap10.0.10240/System.Linq.Dynamic.Core.pdb",
+        "lib/uap10.0.10240/System.Linq.Dynamic.Core.pri",
+        "lib/uap10.0.10240/System.Linq.Dynamic.Core.xml",
+        "system.linq.dynamic.core.1.2.7.nupkg.sha512",
         "system.linq.dynamic.core.nuspec"
       ]
     },
@@ -7593,7 +7593,7 @@
       "Serilog.Sinks.Async >= 1.4.0",
       "Serilog.Sinks.File >= 4.1.0",
       "Swashbuckle.AspNetCore >= 5.6.3",
-      "System.Linq.Dynamic.Core >= 1.2.5"
+      "System.Linq.Dynamic.Core >= 1.2.7"
     ]
   },
   "packageFolders": {
@@ -7602,11 +7602,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\RPG_Project\\RPG_Project\\RPG_Project.csproj",
+      "projectUniqueName": "D:\\RPG_Project\\RPG_Project\\RPG_Project.csproj",
       "projectName": "RPG_Project",
-      "projectPath": "d:\\RPG_Project\\RPG_Project\\RPG_Project.csproj",
+      "projectPath": "D:\\RPG_Project\\RPG_Project\\RPG_Project.csproj",
       "packagesPath": "C:\\Users\\SBT-NB-COM-40\\.nuget\\packages\\",
-      "outputPath": "d:\\RPG_Project\\RPG_Project\\obj\\",
+      "outputPath": "D:\\RPG_Project\\RPG_Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\SBT-NB-COM-40\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7685,7 +7685,7 @@
           },
           "System.Linq.Dynamic.Core": {
             "target": "Package",
-            "version": "[1.2.5, )"
+            "version": "[1.2.7, )"
           }
         },
         "imports": [
