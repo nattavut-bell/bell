@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RPG_Project.Models;
+using RPG_Project.Models.Report;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,18 @@ namespace RPG_Project.Data
 
         public DbSet<CharacterSkill> CharacterSkills { get; set; }
         public DbSet<Skill> Skills { get; set; }
+        public DbSet<ReportHeader> ReportHeaders { get; set; }
+        public DbSet<ReportDetail> ReportDetails { get; set; }
+        // public DbSet<Product> Product { get; set; }
+        // public DbSet<ProductGroup> ProductGroup { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CharacterSkill>().HasKey(x => new { x.CharacterId, x.SkillId });
         }
+
+
+
+
     }
 }

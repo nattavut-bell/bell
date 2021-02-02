@@ -1,0 +1,2 @@
+2021-02-02 13:38:17.262 +07:00 [INF] Starting web host
+2021-02-02 13:48:27.708 +07:00 [INF] Starting web host

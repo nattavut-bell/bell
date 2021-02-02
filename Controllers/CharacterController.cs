@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RPG_Project.DTOs;
+using RPG_Project.DTOs.Figth;
 using RPG_Project.Services.Character;
 
 namespace RPG_Project.Controllers
@@ -40,5 +41,31 @@ namespace RPG_Project.Controllers
         {
             return Ok(await _charService.AddCharacterSkill(newCharSkill));
         }
+
+        [HttpPut("weaponatk")]
+        public async Task<IActionResult> WeaponAtk(WeaponAtkDto request)
+        {
+            return Ok(await _charService.WeaponAtk(request));
+        }
+
+
+        [HttpPut("skillatk")]
+        public async Task<IActionResult> SkillAtk(SkillAtkDto request)
+        {
+            return Ok(await _charService.SkillAtk(request));
+        }
+
+        [HttpDelete("removeweapon")]
+        public async Task<IActionResult> RemoveWeapon(int characterId)
+        {
+            return Ok(await _charService.RemoveWeapon(characterId));
+        }
+
+        [HttpDelete("removeskill")]
+        public async Task<IActionResult> RemoveSkill(int characterId)
+        {
+            return Ok(await _charService.RemoveSkill(characterId));
+        }
+
     }
 }
